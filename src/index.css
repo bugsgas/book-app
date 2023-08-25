@@ -1,0 +1,39 @@
+body {
+  margin: 0;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  font-size: 15px;
+}
+
+/* Card */
+.cardlist {
+  display: flex;
+}
+.card {
+  border-radius: 14px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  width: 16vw;
+  height: 40vh;
+  background-color: #fff;
+}
+
+.card img {
+  width: auto;
+  height: auto;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 16px;
+}
+
+.card h2 {
+  margin-top: 0;
+}
+
+.card p {
+  margin-bottom: 0;
+}
