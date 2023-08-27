@@ -1,82 +1,77 @@
-import Card from "../component/Card";
-import "./test.css";
-import { useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
-import Dashboard from "../menu/Dashboard";
+//important
+import "./layout.css";
 import { Outlet, ScrollRestoration, Navigate } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+
+//bootstrap
+import { Container } from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
+
+//icon
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSearch, faBars } from "@fortawesome/free-solid-svg-icons";
+//pages
 
 function Layout() {
-  const navigate = useNavigate();
-  const [searchTerm, setSearchTerm] = useState("");
-
-  const handleInputChange = (event) => {
-    setSearchTerm(event.target.value);
-  };
-
-  const handleSearch = () => {
-    console.log("Searching for:", searchTerm);
-  };
-
-  const handleLogout = () => {
-    console.log("logout");
-  };
-
-  const handleHomeClick = () => {
-    navigate("dashboard");
-  };
-
-  const handleClick = () => {
-    navigate("popular");
+  const [navOpen, setNavOpen] = useState(false);
+  const toggleNav = () => {
+    setNavOpen(!navOpen);
   };
   return (
-    <div className="app">
-      <div className="sidenav">
-        <div className="logo">
-          <img src="../src/assets/ReviewBook.svg" alt="" />
-        </div>
-        <div className="menu">
-          <a onClick={handleHomeClick}>Dashboard</a>
-          <a onClick={handleClick}>Categories</a>
-          <a hef="action1">Popular Book</a>
-          <a href="action1">Lovelist</a>
-          <a href="action1">Log Out</a>
-        </div>
-      </div>
-      <div className="main">
-        <div className="header">
-          <div className="search">
-            <div className="search-container">
-              <form className="search-form" onSubmit={handleSearch}>
-                <div className="search-input">
-                  <FontAwesomeIcon icon={faSearch} className="search-icon" />
-                  <input
-                    type="text"
-                    placeholder="Search..."
-                    className="placeholder"
-                  />
-                </div>
-              </form>
+    <>
+      <header className="header px-3 py-3">
+        <div className="d-flex justify-content-between align-items-center">
+          <div className="left-side">
+            <img src="../src/assets/ReviewBook.svg" alt="" />
+          </div>
+          <div className="right-side d-flex justify-content-between align-items-center">
+            <div className="search px-3">
+              <div className="search-container">
+                <form className="search-form">
+                  <div className="search-input">
+                    <FontAwesomeIcon icon={faSearch} className="search-icon" />
+                    <input
+                      type="text"
+                      placeholder="Search..."
+                      className="placeholder"
+                    />
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div className="profile">
+              <span className="colored-circle">A</span>
             </div>
           </div>
-          <div className="profile">
-            <div className="dropdown">
-              <span className="colored-circle">A</span>
-              <span>Customer</span>
-              <div className="dropdown-content">
-                <a onClick={handleLogout}>Log Out</a>
+        </div>
+      </header>
+      <main className="d-flex">
+        <nav className="px-3">
+          <div className={`sidenav ${navOpen ? "open" : ""}`}>
+            <div className="menu  py-3 ">
+              <div className="d-flex flex-column">
+                <span className="burger-icon" onClick={toggleNav}>
+                  <FontAwesomeIcon icon={faBars} />
+                </span>
+                ;<a href="action1">Dashboard</a>
+                <a href="action1">Categories</a>
+                <a href="action1">Popular Book</a>
+                <a href="action1">Lovelist</a>
+              </div>
+              <div className="d-flex flex-column">
+                <a href="action1">Log Out</a>
               </div>
             </div>
           </div>
-        </div>
-        <div className="content">
-          <div className="content-card">
+        </nav>
+        <body className={`scrollable-body ${navOpen ? "open" : ""}`}>
+          <div className="content">
             <Outlet />
           </div>
-        </div>
-      </div>
-    </div>
+        </body>
+      </main>
+    </>
   );
 }
 
