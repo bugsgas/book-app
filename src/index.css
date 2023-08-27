@@ -7,3 +7,50 @@ body {
   font-family: "Roboto", sans-serif;
   font-size: 15px;
 }
+
+.button-styled {
+  border: 2px solid #06031270;
+  background-color: white;
+  border-radius: 5%;
+  color: #060312;
+  width: 90px;
+  padding: 5px 0;
+  margin: 0 10px 10px 0;
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+.button-styled:hover {
+  background-color: #060312;
+  color: white;
+}
+
+.selectstyled {
+  border: 2px solid #06031270;
+  background-color: white;
+  border-radius: 5%;
+  color: #060312;
+  width: 90px;
+  padding: 5px 0;
+  text-align: center; /* Center the text horizontally */
+  line-height: normal;
+}
+
+.container {
+  transition: color 0.3s ease, background-color 0.3s ease;
+  margin: 20px 0px;
+  padding: 10px 15px;
+  text-align: center; /* Center-align the elements */
+  background-color: #060312; /* Set the background color */
+}
+
+.add-to-cart {
+  color: white; /* Set text color to white */
+  margin: 0; /* Remove default margin for <h4> */
+}
+
+.love-button {
+  background-color: #060312; /* Match button background color to the container */
+  color: white; /* Set button text color to white */
+  border: none; /* Remove button border */
+
+  cursor: pointer; /* Show a pointer cursor on hover */
+}

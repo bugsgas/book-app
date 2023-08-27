@@ -54,7 +54,7 @@ function Layout() {
                 <span className="burger-icon" onClick={toggleNav}>
                   <FontAwesomeIcon icon={faBars} />
                 </span>
-                ;<a href="action1">Dashboard</a>
+                <a href="action1">Dashboard</a>
                 <a href="action1">Categories</a>
                 <a href="action1">Popular Book</a>
                 <a href="action1">Lovelist</a>

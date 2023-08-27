@@ -1,5 +1,5 @@
 //important import
-import "bootstrap/dist/css/bootstrap.min.css";
+
 import axios from "axios";
 import { useEffect, useState } from "react";
 
@@ -11,9 +11,10 @@ import CardMedia from "@mui/material/CardMedia";
 
 //bootstrap
 import { Card, Button, Image, Container, Row, Col } from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function Dashboard() {
-  const [bookList, setbookList] = useState([]);
+  const [data, setData] = useState([]);
   const [err, setErr] = useState("");
   useEffect(() => {
     getDetailedData();
@@ -24,7 +25,7 @@ function Dashboard() {
       .get(api)
       .then((res) => {
         console.log(res);
-        setbookList(res.data);
+        setData(res.data);
       })
       .catch((err) => {
         setErr(err.message);
@@ -40,7 +41,7 @@ function Dashboard() {
   return (
     <>
       <Row className="">
-        {bookList.map((item) => (
+        {data.map((item) => (
           <Col xs={6} md={3} className="pt-lg-0 pt-sm-4">
             <Card
               className="card"
