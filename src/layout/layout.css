@@ -83,7 +83,7 @@
 }
 
 .menu a:hover {
-  color: #ffffff; /* Change the text color on hover */
+  color: #ffffff !important; /* Change the text color on hover */
   background-color: #060312;
 }
 

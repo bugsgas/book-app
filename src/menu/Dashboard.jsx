@@ -2,6 +2,7 @@
 
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 //MUI
 import * as React from "react";
@@ -38,6 +39,10 @@ function Dashboard() {
       setErr("");
     }, 4000);
   };
+
+  const navigate = useNavigate();
+  const goToId = (id) => navigate(`/details/${id}`);
+
   return (
     <>
       <Row className="">
@@ -56,6 +61,7 @@ function Dashboard() {
             >
               <div className="img-wrap">
                 <CardMedia
+                  onClick={() => goToId(item.id)}
                   component="img"
                   height="180"
                   image={item.media.imageUrl}

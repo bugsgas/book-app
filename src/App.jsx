@@ -10,8 +10,10 @@ import {
 //pages
 import Layout from "./layout/Layout";
 import Dashboard from "./menu/Dashboard";
-import Popular from "./menu/Popular";
+
 import Details from "./menu/Details";
+import Brand from "./menu/Brand";
+import Nike from "./menu/Brand/Nike";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -19,8 +21,9 @@ const router = createBrowserRouter(
       {/* //customer */}
       <Route path="/" element={<Layout />}>
         <Route path="dashboard" board element={<Dashboard />} />
-        <Route path="popular" board element={<Popular />} />
-        <Route path="details" board element={<Details />} />
+        <Route path="brand" board element={<Brand />} />
+        <Route path="nike" board element={<Nike />} />
+        <Route path="/details/:id" board element={<Details />} />
       </Route>
     </Route>
   )

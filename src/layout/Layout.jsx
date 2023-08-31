@@ -14,16 +14,25 @@ import { faSearch, faBars } from "@fortawesome/free-solid-svg-icons";
 //pages
 
 function Layout() {
+  const navigate = useNavigate();
   const [navOpen, setNavOpen] = useState(false);
   const toggleNav = () => {
     setNavOpen(!navOpen);
+  };
+
+  const handleDashboard = () => {
+    navigate("dashboard");
+  };
+
+  const handleBrand = () => {
+    navigate("brand");
   };
   return (
     <>
       <header className="header px-3 py-3">
         <div className="d-flex justify-content-between align-items-center">
           <div className="left-side">
-            <img src="../src/assets/ReviewBook.svg" alt="" />
+            <h3>Sneakers</h3>
           </div>
           <div className="right-side d-flex justify-content-between align-items-center">
             <div className="search px-3">
@@ -54,13 +63,10 @@ function Layout() {
                 <span className="burger-icon" onClick={toggleNav}>
                   <FontAwesomeIcon icon={faBars} />
                 </span>
-                <a href="action1">Dashboard</a>
-                <a href="action1">Categories</a>
-                <a href="action1">Popular Book</a>
-                <a href="action1">Lovelist</a>
-              </div>
-              <div className="d-flex flex-column">
-                <a href="action1">Log Out</a>
+                <a onClick={handleDashboard}>Dashboard</a>
+                <a onClick={handleBrand}>Brand</a>
+                <a href="action1">Wishlist</a>
+                <a href="action1">Cart</a>
               </div>
             </div>
           </div>
